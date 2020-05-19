@@ -2,27 +2,35 @@
 #'@export
 #'
 write_utils = function() {
-    cat("#--------------------------------------------#
-# M. Johnston
-# Wed Apr 15 11:03:02 2020 ------------------------------
-# This script contains utility/convenience functions for analysis
-#--------------------------------------------#
+    cat(paste("#--------------------------------------------#
+# M. Johnston \n",
+              "# Utility/convenience functions for analysis \n",
+              "# ",
+              weekdays(as.POSIXct(Sys.time())),
+              " ",
+              Sys.time(),
+              " ----------------# \n", sep =""),
 
-## ht == headtail
-#--------------------------------------------#
-ht <- function(d, n=6) {
+  paste0("\n
 
-  rbind(head(d, n), tail(d, n))
-
+# quickly 'vet' a dataframe by previewing rows at the head, middle, and tail:
+#-------------------------------------------------------#
+vet <- function(d, n = 4L) {
+ if(class(d) != 'data.frame') stop('vet() can only vet dataframes')
+ left <- as.integer(nrow(d) / 2 - n / 2)
+ torso = d[seq_len(n) + left - 1L,]
+rbind(head(d, n), torso, tail(d, n))
 }
+
 
 # typing shortcuts
 #--------------------------------------------#
 len <- function(x){length(unique(x))}
 csn <- function(x){colSums(is.na(x))}
-rsn <- function(x){rowSums(is.na(x))}",
+rsn <- function(x){rowSums(is.na(x))}"),
 
-  file = "R/utils.R", sep = "\n"
+  file = ifelse(!file.exists("R/utils.R"), "R/utils.R", stop("'R/utils.R' script already exists")),
+  sep = "\n"
   )
 
 }
