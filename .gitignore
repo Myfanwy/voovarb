@@ -1,0 +1,10 @@
+.Rhistory
+.Rproj.*
+*.hpp
+*.o
+*.so
+*.hpp
+inst/doc
+doc
+Meta
+.Rproj.user

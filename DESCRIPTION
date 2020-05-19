@@ -1,0 +1,13 @@
+Package: voovarb
+Title: Convenience Functions for Interactive R Sessions
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Myfanwy",
+           family = "Johnston",
+           role = c("aut", "cre"),
+           email = "myfanwy.johnston@fishsciences.net",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Functions to create boilerplate utility scripts and gitignore files, etc.  Functions are not real "documented" ATM.
+License: MIT
+Encoding: UTF-8
+LazyData: true
